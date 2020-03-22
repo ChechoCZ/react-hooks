@@ -5,3 +5,6 @@ App build with the only purpose of studying the general concepts of ***React Hoo
 
 #### Hooks:
  - useState
+ - useEffect
+ - useMemo
+ - useCallback

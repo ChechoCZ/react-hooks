@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
 function App() {
   const [techs, setTechs] = useState([]);
   const [newTech, setNewTech] = useState('');
 
-  function hanldeAdd() {
+  const hanldeAdd = useCallback(() => {
     setTechs([...techs, newTech ]);
     setNewTech('');
-  }
+  }, [techs, newTech]);
 
   useEffect(() => {
     const storageTechs = localStorage.getItem('techs');
@@ -35,7 +35,7 @@ function App() {
 
       <button type="button" onClick={ hanldeAdd }>Add Tech</button>
 
-      <br/>
+      <br/><br/>
 
       <strong>There are { techsSize } techs registered.</strong>
     </>
